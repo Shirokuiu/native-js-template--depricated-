@@ -15,6 +15,10 @@ git clone git@github.com:Fafnur/webpack-ts-starter.git project
 After clone project, you should install dependencies:
 
 ```shell script
+npm install
+```
+or
+```shell script
 yarn install
 ```
 
@@ -22,6 +26,10 @@ yarn install
 
 For development, you can use the command that runs webpack dev server:
 
+```shell script
+npm run serve
+```
+or
 ```shell script
 yarn run serve
 ```
@@ -31,11 +39,19 @@ yarn run serve
 For build your application, run command:
 
 ```shell script
+npm run build
+```
+or
+```shell script
 yarn run build
 ```
 
 For build your application on production, run command:
 
+```shell script
+npm run build:prod
+```
+or
 ```shell script
 yarn run build:prod
 ```

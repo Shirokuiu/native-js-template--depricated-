@@ -7,6 +7,10 @@
 Для уставновки зависимостей запустить комманду:
 
 ```shell script
+npm install
+```
+или
+```shell script
 yarn install
 ```
 
@@ -14,6 +18,10 @@ yarn install
 
 Для запуска тестового сервера, выполнить комманду:
 
+```shell script
+npm run serve
+```
+или
 ```shell script
 yarn run serve
 ```
@@ -23,11 +31,19 @@ yarn run serve
 Для сборки приложения запустить комманду:
 
 ```shell script
+npm run build
+```
+или
+```shell script
 yarn run build
 ```
 
 Для прод сборки приложения запустить комманду:
 
+```shell script
+npm run build
+```
+или
 ```shell script
 yarn run build:prod
 ```
