@@ -15,14 +15,14 @@ export const render = (
   }
 };
 
-export const createElement = (template: string): Node | null => {
+export const createElement = (template: string): ChildNode | null => {
   const newElement: HTMLElement = document.createElement(`div`);
   newElement.innerHTML = template;
 
   return newElement.firstChild;
 };
 
-export const unrender = (component: HTMLElement): void => {
+export const unrender = (component: ChildNode): void => {
   if (component) {
     component.remove();
   }

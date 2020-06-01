@@ -6,4 +6,8 @@ export default class AppController {
   constructor() {
     this._svgController = new SvgController(document.body);
   }
+
+  init() {
+    this._svgController.init();
+  }
 }

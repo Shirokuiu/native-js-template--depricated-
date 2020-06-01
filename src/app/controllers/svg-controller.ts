@@ -9,11 +9,9 @@ export default class SvgController {
   constructor(container: HTMLElement) {
     this._container = container;
     this._svg = new Svg();
-
-    this._init();
   }
 
-  private _init(): void {
+  init(): void {
     render(this._container, this._svg.getElement(), Place.Afterbegin);
   }
 }

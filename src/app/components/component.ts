@@ -1,7 +1,7 @@
 import { createElement } from '../shared/utils';
 
 export default class Component {
-  private _element: Node | null;
+  private _element: ChildNode | null;
 
   constructor() {
     this._element = null;
@@ -11,7 +11,7 @@ export default class Component {
     this._element = value;
   }
 
-  getElement(): Node | null {
+  getElement(): ChildNode | null {
     if (!this._element) {
       this._element = createElement(this.getTemplate());
     }
