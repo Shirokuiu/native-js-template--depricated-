@@ -1,0 +1,44 @@
+@mixin input {
+  box-sizing: border-box;
+  width: 100%;
+  border: none;
+}
+
+@mixin placeholder($fontFamily, $fontSize, $fontWeight, $color) {
+
+  &::-webkit-input-placeholder {
+    color: $color;
+    font-size: $fontSize;
+    font-family: $fontFamily, sans-serif;
+    font-weight: $fontWeight;
+    line-height: $fontSize + 2;
+    opacity: 1;
+  }
+
+  &:-moz-input-placeholder {
+    color: $color;
+    font-size: $fontSize;
+    font-family: $fontFamily, sans-serif;
+    font-weight: $fontWeight;
+    line-height: $fontSize + 2;
+    opacity: 1;
+  }
+
+  &::-moz-placeholder {
+    color: $color;
+    font-size: $fontSize;
+    font-family: $fontFamily, sans-serif;
+    font-weight: $fontWeight;
+    line-height: $fontSize + 2;
+    opacity: 1;
+  }
+
+  &:-ms-input-placeholder {
+    color: $color;
+    font-size: $fontSize;
+    font-family: $fontFamily, sans-serif;
+    font-weight: $fontWeight;
+    line-height: $fontSize + 2;
+    opacity: 1;
+  }
+}
