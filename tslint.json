@@ -9,7 +9,7 @@
     "prettier": true,
     "max-line-length": [
       true,
-      90
+      95
     ],
     "no-console": true,
     "quotemark": [

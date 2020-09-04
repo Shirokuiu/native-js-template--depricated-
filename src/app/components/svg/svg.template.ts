@@ -1,10 +1,6 @@
-import Component from './component';
+import { Component } from '../../core';
 
-export default class Svg extends Component {
-  constructor() {
-    super();
-  }
-
+export class SvgTemplate extends Component {
   getTemplate(): string {
     return `<svg
     xmlns="http://www.w3.org/2000/svg"
@@ -16,6 +12,6 @@ export default class Svg extends Component {
         padding: 0 !important;
         overflow: hidden !important;
         clip: rect(0 0 0 0) !important;"
-  ></svg>`;
+  ></svg>`.trim();
   }
 }
