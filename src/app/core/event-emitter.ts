@@ -1,5 +1,5 @@
 interface Events {
-  T?: () => void[];
+  T?: (() => void)[];
 }
 
 export class EventEmitter<T extends string, R = undefined> {
