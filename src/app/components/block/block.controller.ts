@@ -1,21 +1,21 @@
-import { SvgView } from './svg.view';
 import { Controller, View } from '../../core';
+import { BlockView } from './block.view';
 
-export class SvgController extends Controller {
+export class BlockController extends Controller {
   // Чтобы крректно отработал controller.destroy
   views = [];
   controllers = [];
   //
 
-  private svgView = new SvgView();
+  private blockView = new BlockView();
 
   constructor(private readonly $containerRef: HTMLElement) {
     super();
   }
 
   init(): void {
-    View.render(this.$containerRef, this.svgView.getElement());
+    View.render(this.$containerRef, this.blockView.getElement());
 
-    this.setViews = [this.svgView];
+    this.setViews = [this.blockView];
   }
 }

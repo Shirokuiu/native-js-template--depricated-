@@ -1,6 +1,6 @@
-import { Component } from '../../core';
+import { ViewComponent } from '../../core';
 
-export class SvgView extends Component {
+export class SvgView extends ViewComponent {
   getTemplate(): string {
     return `<svg
     xmlns="http://www.w3.org/2000/svg"

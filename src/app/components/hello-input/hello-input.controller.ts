@@ -1,12 +1,19 @@
 import { HelloInputView } from './hello-input.view';
-import { View, EventEmitter } from '../../core';
+import { View, EventEmitter, Controller } from '../../core';
 
-export class HelloInputController {
+export class HelloInputController extends Controller {
+  // Чтобы крректно отработал controller.destroy
+  views = [];
+  controllers = [];
+  //
+
   readonly onInputEmit$ = new EventEmitter<string>();
 
   private helloInputView = new HelloInputView();
 
   constructor(private readonly $containerRef: HTMLElement) {
+    super();
+
     this.onInput = this.onInput.bind(this);
   }
 
@@ -20,6 +27,8 @@ export class HelloInputController {
 
       this.onInput(target.value);
     });
+
+    this.setViews = [this.helloInputView];
   }
 
   onInput(value: string): void {

@@ -1,7 +1,7 @@
 export class EventEmitter<T = undefined> {
   private event: ((res: T) => void)[];
 
-  emit(data?: T) {
+  public emit(data?: T) {
     const event: (() => void)[] = this.event as (() => void)[];
 
     if (event) {
@@ -11,7 +11,7 @@ export class EventEmitter<T = undefined> {
     }
   }
 
-  subscribe(fn: (res: T) => void): () => void {
+  public subscribe(fn: (res: T) => void): () => void {
     if (!this.event) {
       this.event = [] as (() => void)[];
     }

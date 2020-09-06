@@ -1,6 +1,6 @@
-import { Component } from '../../core';
+import { ViewComponent } from '../../core';
 
-export class HelloInputView extends Component {
+export class HelloInputView extends ViewComponent {
   getTemplate(): string {
     return `<input type="text" placeholder="Fill text">`.trim();
   }

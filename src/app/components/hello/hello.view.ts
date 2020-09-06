@@ -1,6 +1,6 @@
-import { Component } from '../../core';
+import { ViewComponent } from '../../core';
 
-export class HelloView extends Component {
+export class HelloView extends ViewComponent {
   getTemplate(): string {
     return `
       <div class="hello">
