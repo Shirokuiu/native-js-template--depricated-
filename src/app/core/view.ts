@@ -1,6 +1,6 @@
 import { Place } from '../shared/enums';
 
-export class DOM {
+export class View {
   static createElement(template: string): HTMLElement {
     const newElement: HTMLElement = document.createElement(`div`);
     newElement.innerHTML = template;

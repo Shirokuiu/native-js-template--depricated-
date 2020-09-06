@@ -1,21 +1,21 @@
-import { HelloInputTemplate } from './hello-input.template';
-import { DOM, EventEmitter } from '../../core';
+import { HelloInputView } from './hello-input.view';
+import { View, EventEmitter } from '../../core';
 
 export class HelloInputController {
   readonly onInputEmit$ = new EventEmitter<'onInput', string>();
 
-  private helloInputTemplate = new HelloInputTemplate();
+  private helloInputView = new HelloInputView();
 
-  constructor(private readonly $container: HTMLElement) {
+  constructor(private readonly $containerRef: HTMLElement) {
     this.onInput = this.onInput.bind(this);
   }
 
   init(): void {
-    const $input = this.helloInputTemplate.getElement();
+    const $inputRef = this.helloInputView.getElement();
 
-    DOM.render(this.$container, $input);
+    View.render(this.$containerRef, $inputRef);
 
-    $input.addEventListener('input', (evt: Event & { target: HTMLInputElement }) => {
+    $inputRef.addEventListener('input', (evt: Event & { target: HTMLInputElement }) => {
       const { target } = evt;
 
       this.onInput(target.value);

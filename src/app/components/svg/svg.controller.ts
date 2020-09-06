@@ -1,12 +1,12 @@
-import { SvgTemplate } from './svg.template';
-import { DOM } from '../../core';
+import { SvgView } from './svg.view';
+import { View } from '../../core';
 
 export class SvgController {
-  private svgTemplate = new SvgTemplate();
+  private svgView = new SvgView();
 
-  constructor(private readonly $container: HTMLElement) {}
+  constructor(private readonly $containerRef: HTMLElement) {}
 
   init(): void {
-    DOM.render(this.$container, this.svgTemplate.getElement());
+    View.render(this.$containerRef, this.svgView.getElement());
   }
 }
