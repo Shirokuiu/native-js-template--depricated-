@@ -1,6 +1,6 @@
 import { Component } from '../../core';
 
-export class HelloTemplate extends Component {
+export class HelloView extends Component {
   getTemplate(): string {
     return `
       <div class="hello">

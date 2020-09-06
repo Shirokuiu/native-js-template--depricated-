@@ -1,3 +1,3 @@
 export * from './component';
-export * from './dom';
+export * from './view';
 export * from './event-emitter';

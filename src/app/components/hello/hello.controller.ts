@@ -1,27 +1,29 @@
-import { HelloTemplate } from './hello.template';
-import { DOM } from '../../core';
+import { HelloView } from './hello.view';
+import { View } from '../../core';
 import { HelloInputController } from '..';
 
 export class HelloController {
-  private helloTemplate = new HelloTemplate();
+  private helloView = new HelloView();
   private helloInputController: HelloInputController;
 
-  constructor(private readonly $container: HTMLElement) {}
+  constructor(private readonly $containerRef: HTMLElement) {}
 
   init(): void {
-    const $hello = this.helloTemplate.getElement();
-    const $helloInputWrap = $hello.querySelector('.hello__input-wrap') as HTMLElement;
-    const $helloText = $hello.querySelector('.hello__text') as HTMLElement;
-    this.helloInputController = new HelloInputController($helloInputWrap);
+    const $helloRef = this.helloView.getElement();
+    const $helloInputWrapRef = $helloRef.querySelector(
+      '.hello__input-wrap'
+    ) as HTMLElement;
+    const $helloTextRef = $helloRef.querySelector('.hello__text') as HTMLElement;
+    this.helloInputController = new HelloInputController($helloInputWrapRef);
 
-    DOM.render(this.$container, $hello);
+    View.render(this.$containerRef, $helloRef);
 
     this.helloInputController.init();
 
     const unsubscribe$ = this.helloInputController.onInputEmit$.subscribe(
       'onInput',
       (res: string) => {
-        $helloText.textContent = res;
+        $helloTextRef.textContent = res;
 
         if (res.length > 5) {
           // Отписка от эмиттера

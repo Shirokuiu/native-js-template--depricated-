@@ -1,4 +1,4 @@
-import { DOM } from './dom';
+import { View } from './view';
 
 export abstract class Component {
   private element: HTMLElement | null = null;
@@ -11,14 +11,14 @@ export abstract class Component {
 
   getElement(): HTMLElement {
     if (!this.element) {
-      this.element = DOM.createElement(this.getTemplate()) as HTMLElement;
+      this.element = View.createElement(this.getTemplate()) as HTMLElement;
     }
 
     return this.element;
   }
 
   removeElement() {
-    DOM.unRender(this.element as HTMLElement);
+    View.unRender(this.element as HTMLElement);
     this.element = null;
   }
 
