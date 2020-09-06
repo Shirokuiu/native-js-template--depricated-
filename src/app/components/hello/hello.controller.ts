@@ -21,7 +21,6 @@ export class HelloController {
     this.helloInputController.init();
 
     const unsubscribe$ = this.helloInputController.onInputEmit$.subscribe(
-      'onInput',
       (res: string) => {
         $helloTextRef.textContent = res;
 

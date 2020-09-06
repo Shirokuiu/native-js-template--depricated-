@@ -2,7 +2,7 @@ import { HelloInputView } from './hello-input.view';
 import { View, EventEmitter } from '../../core';
 
 export class HelloInputController {
-  readonly onInputEmit$ = new EventEmitter<'onInput', string>();
+  readonly onInputEmit$ = new EventEmitter<string>();
 
   private helloInputView = new HelloInputView();
 
@@ -23,6 +23,6 @@ export class HelloInputController {
   }
 
   onInput(value: string): void {
-    this.onInputEmit$.emit('onInput', value);
+    this.onInputEmit$.emit(value);
   }
 }

@@ -1,12 +1,8 @@
-interface Events {
-  T?: (() => void)[];
-}
+export class EventEmitter<T = undefined> {
+  private event: ((res: T) => void)[];
 
-export class EventEmitter<T extends string, R = undefined> {
-  private events: Events = {};
-
-  emit(eventName: T, data?: R) {
-    const event: (() => void)[] = this.events[eventName as string];
+  emit(data?: T) {
+    const event: (() => void)[] = this.event as (() => void)[];
 
     if (event) {
       event.forEach((fn: () => void) => {
@@ -15,17 +11,15 @@ export class EventEmitter<T extends string, R = undefined> {
     }
   }
 
-  subscribe(eventName: T, fn: (res: R) => void): () => void {
-    if (!this.events[eventName as string]) {
-      this.events[eventName as string] = [];
+  subscribe(fn: (res: T) => void): () => void {
+    if (!this.event) {
+      this.event = [] as (() => void)[];
     }
 
-    this.events[eventName as string].push(fn);
+    this.event.push(fn);
 
     return () => {
-      this.events[eventName as string] = this.events[eventName as string].filter(
-        (eventFn: () => void) => fn !== eventFn
-      );
+      this.event = this.event.filter((eventFn: (res: T) => void) => fn !== eventFn);
     };
   }
 }
