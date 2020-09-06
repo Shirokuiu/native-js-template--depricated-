@@ -1,12 +1,19 @@
 import { HelloView } from './hello.view';
-import { View } from '../../core';
+import { Controller, View } from '../../core';
 import { HelloInputController } from '..';
 
-export class HelloController {
+export class HelloController extends Controller {
+  // Чтобы крректно отработал controller.destroy
+  views = [];
+  controllers = [];
+  //
+
   private helloView = new HelloView();
   private helloInputController: HelloInputController;
 
-  constructor(private readonly $containerRef: HTMLElement) {}
+  constructor(private readonly $containerRef: HTMLElement) {
+    super();
+  }
 
   init(): void {
     const $helloRef = this.helloView.getElement();
@@ -30,5 +37,8 @@ export class HelloController {
         }
       }
     );
+
+    this.setViews = [this.helloView];
+    this.setControllers = [this.helloInputController];
   }
 }

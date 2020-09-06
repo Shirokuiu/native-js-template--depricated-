@@ -1,10 +1,10 @@
 import { View } from './view';
 
-export abstract class Component {
+export abstract class ViewComponent {
   private element: HTMLElement | null = null;
 
   constructor() {
-    if (new.target === Component) {
+    if (new.target === ViewComponent) {
       throw new Error(`Can't instantiate AbstractComponent, only concrete one.`);
     }
   }
