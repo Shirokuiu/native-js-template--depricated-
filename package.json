@@ -9,7 +9,7 @@
     "test:style": "stylelint \"src/**/*.scss\" --syntax=scss",
     "lint": "tslint ./src/tslint.json ./src/**/*.ts -t verbose --fix",
     "lint-staged": "lint-staged",
-    "prettier": "npx prettier --write \"src/{app,environments,assets}/**/*{.ts,.js,.json,.html}\"",
+    "prettier": "npx prettier --write \"src/{app,environments,assets}/**/*{.ts,.html}\"",
     "codestyle": "npm run prettier && tslint -p tsconfig.json && stylelint --syntax=scss",
     "build": "webpack",
     "build:prod": "webpack --config webpack.config.prod.js"

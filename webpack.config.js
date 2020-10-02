@@ -4,6 +4,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const autoprefixer = require('autoprefixer');
+
 module.exports = {
   entry: './src/main.ts',
   output: {
@@ -43,7 +45,17 @@ module.exports = {
             },
           },
           'css-loader',
-          'postcss-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [
+                autoprefixer({
+                  overrideBrowserslist:['ie >= 8', 'last 4 version']
+                })
+              ],
+              sourceMap: true
+            }
+          },
           'sass-loader',
         ],
       },
