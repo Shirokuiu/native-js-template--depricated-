@@ -1,6 +1,5 @@
-import { AppController } from './components';
+import AppController from './modules/app/components/app/app.controller';
 
-const $rootContainerRef = document.body as HTMLElement;
-const appController = new AppController($rootContainerRef);
+const appController = new AppController();
 
 appController.init();
